@@ -54,6 +54,10 @@ public class SaveData {
         saveButton.setBounds(10, 150, 80, 25);
         panel.add(saveButton);
 
+        JButton retrieveButton = new JButton("Retrieve"); // Add a new button for retrieval
+        retrieveButton.setBounds(100, 150, 100, 25);
+        panel.add(retrieveButton);
+
         // Assuming CourseType is imported or fully qualified
         Student.CourseType defaultCourseType = Student.CourseType.MAJOR;
 
@@ -74,8 +78,30 @@ public class SaveData {
                 student.setCourseType(defaultCourseType); // Use the appropriate value
 
                 // Serialize and save the data
-                DataSerialization.serializeData("student_data.ser", student);
+                DataSerialization.serializeData("student_data.txt", student);
             }
         });
+
+        retrieveButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Retrieve and deserialize the data
+                Object obj = DataSerialization.deserializeData("student_data.txt");
+
+                if (obj instanceof Student) {
+                    Student student = (Student) obj;
+
+                    // Display the retrieved data in the GUI components
+                    nameText.setText(student.getStudentName());
+                    rollText.setText(student.getRollNumber());
+                    subjectText.setText(student.getSubject());
+                    majorText.setText(student.getMajor());
+                    // You might need to handle the CourseType appropriately as well
+                } else {
+                    // Handle the case where deserialization fails or the object is not a Student
+                    JOptionPane.showMessageDialog(null, "Error: Unable to retrieve student data");
+                }
+            }
+        });
+
     }
 }
