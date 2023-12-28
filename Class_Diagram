@@ -1,10 +1,30 @@
-+-----------------+
-|     Student     |
-+-----------------+
-| - studentId     |
-| - studentName   |
-| - courseType    |
-+-----------------+
-| + enrollCourse()|
-| + viewDetails() |
-+-----------------+
++-------------------------------------------+
+| Student |
++-------------------------------------------+
+| - studentName: String |
+| - rollNumber: String |
+| - subject: String |
+| - major: String |
+| - courseType: CourseType |
++-------------------------------------------+
+| + Student() |
+| + Student(params) |
+| + getStudentName(): String |
+| + setStudentName(name: String) |
+| + getRollNumber(): String |
+| + setRollNumber(number: String) |
+| + getSubject(): String |
+| + setSubject(subject: String) |
+| + getMajor(): String |
+| + setMajor(major: String) |
+| + getCourseType(): CourseType |
+| + setCourseType(courseType: CourseType) |
++-------------------------------------------+
+| <<enumeration>> |
++-------------------------------------------+
+| CourseType |
++-------------------------------------------+
+| - MAJOR |
+| - NON_MAJOR |
+| - OPTIONAL |
++-------------------------------------------+
