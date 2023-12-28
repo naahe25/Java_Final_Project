@@ -1,0 +1,10 @@
++-----------------+
+|     Student     |
++-----------------+
+| - studentId     |
+| - studentName   |
+| - courseType    |
++-----------------+
+| + enrollCourse()|
+| + viewDetails() |
++-----------------+
